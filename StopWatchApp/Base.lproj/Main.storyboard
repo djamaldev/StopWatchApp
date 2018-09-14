@@ -1,24 +1,272 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gup-So-PdD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Stop WatchVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StopWatchVC" customModule="StopWatchApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvg-KJ-bcJ" customClass="CirclButton" customModule="StopWatchApp" customModuleProvider="target">
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.16868853427292088" green="0.41073028698539649" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="YmT-ek-a4p"/>
+                                    <constraint firstAttribute="height" constant="100" id="qbT-gZ-Xeq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
+                                <state key="normal" title="Satrt">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="StarWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SEL-xb-mqX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okw-Zh-npk">
+                                <rect key="frame" x="16" y="162" width="343" height="72"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.044070173765336576" green="0.0637548575129534" blue="0.060772537073542611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jvg-KJ-bcJ" firstAttribute="top" secondItem="Okw-Zh-npk" secondAttribute="bottom" constant="50" id="0fF-lb-ajO"/>
+                            <constraint firstItem="Okw-Zh-npk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6i1-cd-Mqm"/>
+                            <constraint firstItem="jvg-KJ-bcJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6x6-k6-VTb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Okw-Zh-npk" secondAttribute="trailing" constant="16" id="JFR-y4-2sZ"/>
+                            <constraint firstItem="jvg-KJ-bcJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WAl-mL-y7f"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="stopwatch" selectedImage="stopwatch" id="04X-LP-shv">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="TimeLabel" destination="Okw-Zh-npk" id="v23-ML-Dnq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Wy8-pt-rTV">
+            <objects>
+                <viewController id="MOk-fx-g4l" customClass="SettingsVC" customModule="StopWatchApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wAY-Vj-vrJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w4U-OV-6ck">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.024696405439999999" green="0.01441817601" blue="0.0068793822459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vag-AW-06a" firstAttribute="trailing" secondItem="w4U-OV-6ck" secondAttribute="trailing" id="SSs-UN-lzG"/>
+                            <constraint firstItem="vag-AW-06a" firstAttribute="bottom" secondItem="w4U-OV-6ck" secondAttribute="bottom" id="l11-9C-CeJ"/>
+                            <constraint firstItem="w4U-OV-6ck" firstAttribute="leading" secondItem="vag-AW-06a" secondAttribute="leading" id="nD5-2w-xlN"/>
+                            <constraint firstItem="w4U-OV-6ck" firstAttribute="top" secondItem="vag-AW-06a" secondAttribute="top" id="zg6-DE-Gze"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vag-AW-06a"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="MVi-rW-tnI" customClass="LaguageItem" customModule="StopWatchApp" customModuleProvider="target">
+                        <barButtonItem key="backBarButtonItem" title="  " id="ejB-6D-Mz6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="ArabicText" value="الاعدادات"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="EnglishText" value="Settings"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="w4U-OV-6ck" id="6jM-NF-nP6"/>
+                        <segue destination="J8D-z3-nGD" kind="show" identifier="Backround" id="rij-uJ-KqO"/>
+                        <segue destination="14W-GA-BFj" kind="show" identifier="Langages" id="xNF-gs-Sqj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sCy-8m-aD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751.1999999999998" y="133.5832083958021"/>
+        </scene>
+        <!--Background-->
+        <scene sceneID="RGM-2o-tmh">
+            <objects>
+                <viewController id="J8D-z3-nGD" customClass="BackroundVC" customModule="StopWatchApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Ca-zm-V3V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s2r-eY-eHe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NAp-jQ-NDC">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="s2r-eY-eHe" firstAttribute="leading" secondItem="Bkp-aS-k8J" secondAttribute="leading" id="Bsx-WP-JgG"/>
+                            <constraint firstItem="s2r-eY-eHe" firstAttribute="top" secondItem="Bkp-aS-k8J" secondAttribute="top" id="mH1-Yb-7zo"/>
+                            <constraint firstItem="Bkp-aS-k8J" firstAttribute="bottom" secondItem="s2r-eY-eHe" secondAttribute="bottom" id="vir-Z6-15I"/>
+                            <constraint firstItem="Bkp-aS-k8J" firstAttribute="trailing" secondItem="s2r-eY-eHe" secondAttribute="trailing" id="yyX-ca-FNc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bkp-aS-k8J"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Background" id="pMH-Zj-8nZ" customClass="LaguageItem" customModule="StopWatchApp" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="ArabicText" value="خلفيات"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="EnglishText" value="Background"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CollectionView" destination="s2r-eY-eHe" id="ZyN-B8-1uS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S6W-5v-SoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3626" y="-247"/>
+        </scene>
+        <!--Languages-->
+        <scene sceneID="OFf-RT-eo0">
+            <objects>
+                <viewController id="14W-GA-BFj" customClass="LanguageVC" customModule="StopWatchApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Cu-ET-AVI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="uAJ-LU-3XL">
+                                <rect key="frame" x="16" y="288.5" width="343" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rp-Z3-HAK" customClass="LanguageButton" customModule="StopWatchApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="39"/>
+                                        <color key="backgroundColor" red="0.21182142146881877" green="0.31602370836849936" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Arabic">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="ArabicText" value="العربية"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="EnglishText" value="Arabic"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ArabicLang:" destination="14W-GA-BFj" eventType="touchUpInside" id="thd-4F-sI1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayw-N4-hO4" customClass="LanguageButton" customModule="StopWatchApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="51" width="343" height="39"/>
+                                        <color key="backgroundColor" red="0.17736211032556548" green="0.33039013912196646" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="English">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="ArabicText" value="الانجليزية"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="EnglishText" value="English"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="EnglishLang:" destination="14W-GA-BFj" eventType="touchUpInside" id="Ash-C0-q8l"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uAJ-LU-3XL" firstAttribute="centerX" secondItem="3Cu-ET-AVI" secondAttribute="centerX" id="7RO-OR-5zH"/>
+                            <constraint firstItem="Wax-rI-hSB" firstAttribute="trailing" secondItem="uAJ-LU-3XL" secondAttribute="trailing" constant="16" id="JDm-kU-Gsk"/>
+                            <constraint firstItem="uAJ-LU-3XL" firstAttribute="leading" secondItem="Wax-rI-hSB" secondAttribute="leading" constant="16" id="LXo-AJ-Zps"/>
+                            <constraint firstItem="uAJ-LU-3XL" firstAttribute="centerY" secondItem="3Cu-ET-AVI" secondAttribute="centerY" id="aXa-2u-QZo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wax-rI-hSB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Languages" id="I0c-ZL-hQm" customClass="LaguageItem" customModule="StopWatchApp" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="ArabicText" value="اللغة"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="EnglishText" value="Langage"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8GV-gw-Q2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3625" y="519"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bXK-4x-FNG">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="gup-So-PdD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="2Bz-8b-rtU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="EQK-bC-rpJ"/>
+                        <segue destination="0C0-pF-OOc" kind="relationship" relationship="viewControllers" id="Jbn-qb-Zpq"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nkQ-5X-mki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fFp-l7-jN2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0C0-pF-OOc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="setting" selectedImage="setting" id="cpl-t1-M6d">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="NRi-Ju-wlo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MOk-fx-g4l" kind="relationship" relationship="rootViewController" id="Aef-p9-Qmc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cnA-Qf-0vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1812" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="setting" width="42" height="42"/>
+        <image name="stopwatch" width="42" height="42"/>
+    </resources>
 </document>

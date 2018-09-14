@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+var lastSec : TimeInterval = 0.0
+var result : TimeInterval = 0.0
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        BackroundColorManager.Configure()
+        UITabBar.appearance().tintColor = UIColor(displayP3Red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+        UIApplication.shared.statusBarStyle = .lightContent
+        sleep(2)
         return true
     }
 
@@ -27,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        lastSec = Date().timeIntervalSince1970
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -35,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        if lastSec != 0 {
+            result = Date().timeIntervalSince1970 - lastSec
+            lastSec = 0
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
